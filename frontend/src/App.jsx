@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import openWeatherClients from './utils/openWeatherClients';
 import './App.css';
+import 'primeflex/primeflex.css';
+import 'primeicons/primeicons.css';
+import 'primereact/resources/primereact.min.css';
 import Busca from './components/Busca';
+import Exibir from './components/Exibir'
 function App() {
-  
+  const [previsao, setPrevisao] = useState([])
   return (
-    <>
-     <Busca/>
-    </>
+    <div >
+     <Busca setPrevisao={setPrevisao}/>
+     <Exibir previsao = {previsao}/>
+    </div>
   );
 }
 
