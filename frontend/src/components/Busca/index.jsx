@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import openWeatherClients from '../../utils/openWeatherClients';
 import './busca.css';
 
-function Busca() {
+function Busca({setPrevisao}) {
     const [valor, setValor] = useState('Sao Paulo');
 
     useEffect(() => {
@@ -11,7 +11,8 @@ function Busca() {
                 const fazerBusca = async () => {
                     try {
                         const response = await openWeatherClients.get(`/forecast?q=${valor}`);
-                        console.log(response.data);
+                        const resultado = response.data
+                        setPrevisao(resultado)
                     } catch (error) {
                         console.error("Erro ao buscar os dados:", error);
                     }
@@ -28,7 +29,7 @@ function Busca() {
     return (
         <>
             <div className="container-input">
-                <label htmlFor="input">Vamos descobrir o clima de onde?</label>
+                <label htmlFor="input" className='text-xl'>Vamos descobrir o clima de onde?</label>
                 <input
                     type="text"
                     name="input"
@@ -36,7 +37,6 @@ function Busca() {
                     onChange={(e) => setValor(e.target.value)}
                 />
             </div>
-            <h1>{valor}</h1>
         </>
     );
 }
