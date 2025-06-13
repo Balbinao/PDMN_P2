@@ -3,7 +3,7 @@ import openWeatherClients from '../../utils/openWeatherClients';
 import './busca.css';
 
 function Busca({setPrevisao}) {
-    const [valor, setValor] = useState('Sao Paulo');
+    const [valor, setValor] = useState('');
 
     useEffect(() => {
         const timeoutID = setTimeout(() => {
@@ -19,7 +19,7 @@ function Busca({setPrevisao}) {
                 };
                 fazerBusca();
             }
-        }, 1000);
+        }, 2000);
 
         return () => {
             clearTimeout(timeoutID);
