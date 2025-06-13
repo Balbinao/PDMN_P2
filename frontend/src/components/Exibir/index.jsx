@@ -20,6 +20,7 @@ function Exibir({ previsao }) {
                             <p>{striptags(dado.descricao)}</p>
                             <p>Máxima: {striptags(String(dado.temp_max))}°C</p>
                             <p>Mínima: {striptags(String(dado.temp_min))}°C</p>
+                            <p>Umidade do ar: {striptags(String(dado.umidade))}%</p>
                         </div>
                     </div>
                 </Card>
